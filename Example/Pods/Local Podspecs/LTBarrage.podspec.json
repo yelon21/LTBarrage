@@ -1,0 +1,22 @@
+{
+  "name": "LTBarrage",
+  "version": "0.1.0",
+  "summary": "LTBarrage.",
+  "description": "LTBarrage 个人弹幕",
+  "homepage": "https://github.com/yelon21/LTBarrage",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yelon21": "254956982@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/yelon21/LTBarrage.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source_files": "LTBarrage/Classes/**/*"
+}
