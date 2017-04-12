@@ -18,5 +18,7 @@
 
 //@property(nonatomic,assign) BOOL  removed;
 
+-(instancetype)init NS_UNAVAILABLE;
+-(instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
 -(_Nonnull instancetype)initWithHeight:(CGFloat)height;
 @end

@@ -52,8 +52,8 @@
     self.isPlaying = NO;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleDeviceOrientationDidChange:)
-                                                 name:UIDeviceOrientationDidChangeNotification
+                                             selector:@selector(handleStatusBarOrientationDidChange:)
+                                                 name:UIApplicationDidChangeStatusBarOrientationNotification
                                                object:nil
      ];
     
@@ -238,27 +238,23 @@
                      }];
 }
 
-- (void)handleDeviceOrientationDidChange:(UIInterfaceOrientation)interfaceOrientation
+- (void)handleStatusBarOrientationDidChange:(NSNotification *)notification
 {
     //1.获取 当前设备 实例
-    UIDevice *device = [UIDevice currentDevice] ;
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     
-    switch (device.orientation) {
+    switch (orientation) {
             
-        case UIDeviceOrientationPortrait:
-        case UIDeviceOrientationPortraitUpsideDown:
-        case UIDeviceOrientationLandscapeLeft:
-        case UIDeviceOrientationLandscapeRight:{
+        case UIInterfaceOrientationPortrait:
+        case UIInterfaceOrientationPortraitUpsideDown:
+        case UIInterfaceOrientationLandscapeLeft:
+        case UIInterfaceOrientationLandscapeRight:{
 
             [self calcuteRowCount];
             [self clearScreenMessage];
             break;
         }
-        case UIDeviceOrientationFaceUp:
-            break;
-        case UIDeviceOrientationFaceDown:
-            break;
-        case UIDeviceOrientationUnknown:
+        case UIInterfaceOrientationUnknown:
             break;
         default:
             NSLog(@"无法辨识");
